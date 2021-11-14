@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import Expense from './Expense'
+import AppLayout from './AppLayout'
 
-describe('Expense', () => {
+describe('AppLayout', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<Expense />)
+      render(<AppLayout />)
     }).not.toThrow()
   })
 })

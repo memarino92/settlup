@@ -1,11 +1,11 @@
-import Expense from '../Expense/Expense'
+import ExpenseItem from '../ExpenseItem/ExpenseItem'
 
 const ExpenseList = ({ expenseList, removeExpense }) => {
   return (
     <div>
       {expenseList.map((expense) => {
         return (
-          <Expense
+          <ExpenseItem
             key={expense.id}
             expense={expense}
             removeExpense={removeExpense}
