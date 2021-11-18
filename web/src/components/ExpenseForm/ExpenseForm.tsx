@@ -15,7 +15,7 @@ const ExpenseForm = () => {
     <div className="w-full max-w-full">
       <Form
         onSubmit={onSubmit}
-        className=" flex flex-nowrap align-middle justify-evenly bg-white shadow-md rounded px-2 p-2 mb-4"
+        className=" flex flex-nowrap align-middle justify-evenly px-2 p-2 mb-4"
       >
         <div className="m-2 w-2/4">
           <Label
