@@ -25,13 +25,7 @@ export const Success = ({ expenses }: CellSuccessProps<ExpenseItemsQuery>) => {
   return (
     <div>
       {expenses.map((expense) => {
-        return (
-          <ExpenseItem
-            key={expense.id}
-            expense={expense}
-            removeExpense={() => {}}
-          />
-        )
+        return <ExpenseItem key={expense.id} expense={expense} />
       })}
     </div>
   )

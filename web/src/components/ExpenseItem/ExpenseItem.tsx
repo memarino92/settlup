@@ -1,4 +1,4 @@
-const ExpenseItem = ({ expense, removeExpense }) => {
+const ExpenseItem = ({ expense }) => {
   return (
     <div className="mt-1 flex flex-row justify-between relative bg-gray-200 p-2 rounded-lg max-w-md">
       <p>
@@ -8,7 +8,7 @@ const ExpenseItem = ({ expense, removeExpense }) => {
           minimumFractionDigits: 2,
         })}
       </p>
-      <button onClick={removeExpense(expense.id)}>Remove</button>
+      <button onClick={() => {}}>Remove</button>
     </div>
   )
 }
