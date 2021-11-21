@@ -1,6 +1,4 @@
 import { useMutation } from '@redwoodjs/web'
-import { toast } from '@redwoodjs/web/toast'
-
 import { QUERY } from 'src/components/ExpenseItemsCell'
 
 const DELETE_EXPENSE_MUTATION = gql`
@@ -13,15 +11,6 @@ const DELETE_EXPENSE_MUTATION = gql`
 
 const ExpenseItem = ({ expense }) => {
   const [deleteExpense] = useMutation(DELETE_EXPENSE_MUTATION, {
-    onCompleted: () => {
-      toast.success('Expense deleted')
-    },
-    onError: (error) => {
-      toast.error(error.message)
-    },
-    // This refetches the query on the list page. Read more about other ways to
-    // update the cache over here:
-    // https://www.apollographql.com/docs/react/data/mutations/#making-all-other-cache-updates
     refetchQueries: [{ query: QUERY }],
     awaitRefetchQueries: true,
   })

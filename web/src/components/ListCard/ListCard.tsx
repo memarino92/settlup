@@ -10,7 +10,13 @@ const ListCard = () => {
       <ExpenseForm />
       <ExpenseItemsCell setTotal={setTotal} />
       <div>
-        <h2>Total: ${total}</h2>
+        <h2>
+          Total: $
+          {total.toLocaleString('en-US', {
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+          })}
+        </h2>
       </div>
     </div>
   )
