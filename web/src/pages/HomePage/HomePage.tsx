@@ -1,9 +1,9 @@
-import ExpenseItemsCell from 'src/components/ExpenseItemsCell'
+import ListCard from 'src/components/ListCard/ListCard'
 
 const HomePage = () => {
   return (
     <>
-      <ExpenseItemsCell />
+      <ListCard />
     </>
   )
 }
