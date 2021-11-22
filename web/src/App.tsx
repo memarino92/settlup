@@ -10,11 +10,11 @@ import './index.css'
 import FlagProvider from '@unleash/proxy-client-react'
 
 const config = {
-  url: 'https://HOSTNAME/api/proxy',
-  clientKey: 'PROXYKEY',
+  url: process.env.UNLEASH_PROXY_URL,
+  clientKey: process.env.UNLEASH_PROXY_SECRET,
   refreshInterval: 15,
-  appName: 'your-app-name',
-  environment: 'dev',
+  appName: 'unleash-playground',
+  environment: process.env.ENVIRONMENT,
 }
 
 const App = () => (
