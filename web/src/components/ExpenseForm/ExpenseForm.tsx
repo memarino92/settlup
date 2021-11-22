@@ -1,3 +1,7 @@
+import { useMutation } from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/toast'
+
+import { QUERY } from 'src/components/ExpenseItemsCell'
 import {
   Form,
   FieldError,
@@ -7,9 +11,29 @@ import {
   TextField,
 } from '@redwoodjs/forms'
 
+const CREATE_EXPENSE_MUTATION = gql`
+  mutation CreateExpenseMutation($input: CreateExpenseInput!) {
+    createExpense(input: $input) {
+      id
+    }
+  }
+`
+
 const ExpenseForm = () => {
+  const [createExpense] = useMutation(CREATE_EXPENSE_MUTATION, {
+    onCompleted: () => {
+      toast.success('Expense created')
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+    refetchQueries: [{ query: QUERY }],
+    awaitRefetchQueries: true,
+  })
+
   const onSubmit = (data) => {
     console.log(data)
+    createExpense({ variables: { data } })
   }
   return (
     <div className="w-full max-w-full">

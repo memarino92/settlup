@@ -20,7 +20,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             className="text-blue-400 hover:text-blue-100 transition duration-100"
             to={routes.home()}
           >
-            Split the Diff
+            SettlUp
           </Link>
         </h1>
       </header>
