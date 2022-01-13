@@ -31,9 +31,9 @@ const ExpenseForm = () => {
     awaitRefetchQueries: true,
   })
 
-  const onSubmit = (data) => {
-    console.log(data)
-    createExpense({ variables: { data } })
+  const onSubmit = (input) => {
+    console.log(input)
+    createExpense({ variables: { input } })
   }
   return (
     <div className="w-full max-w-full">
@@ -50,12 +50,12 @@ const ExpenseForm = () => {
             Name
           </Label>
           <TextField
-            name="Name"
+            name="name"
             validation={{ required: true }}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             errorClassName="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           />
-          <FieldError name="Name" className="text-red-500 text-xs italic" />
+          <FieldError name="name" className="text-red-500 text-xs italic" />
         </div>
         <div className="m-2 w-1/4">
           <Label
@@ -66,12 +66,12 @@ const ExpenseForm = () => {
             Amount
           </Label>
           <NumberField
-            name="Amount"
+            name="amount"
             validation={{ required: true }}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             errorClassName="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           />
-          <FieldError name="Amount" className="text-red-500 text-xs italic" />
+          <FieldError name="amount" className="text-red-500 text-xs italic" />
         </div>
         <Submit className="bg-white text-blue-500 text-4xl font-bold  border border-blue-500 rounded-full hover:text-white hover:bg-blue-500">
           +
