@@ -32,10 +32,10 @@ describe('expenses', () => {
     const original = await expense({ id: scenario.expense.one.id })
     const result = await updateExpense({
       id: original.id,
-      input: { amount: 3113164.2372494284 },
+      input: { amount: 3113164.237249428 },
     })
 
-    expect(result.amount).toEqual(3113164.2372494284)
+    expect(result.amount).toEqual(3113164.237249428)
   })
 
   scenario('deletes a expense', async (scenario: StandardScenario) => {

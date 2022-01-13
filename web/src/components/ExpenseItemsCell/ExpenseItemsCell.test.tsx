@@ -29,7 +29,7 @@ describe('ExpenseItemsCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success expenseItems={standard().expenseItems} />)
+      render(<Success expenses={standard().expenses} setTotal={() => {}} />)
     }).not.toThrow()
   })
 })

@@ -5,7 +5,9 @@ import ExpenseItem from './ExpenseItem'
 describe('ExpenseItem', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<ExpenseItem />)
+      render(
+        <ExpenseItem expense={{ id: 1, name: 'Burgers', amount: 42.67 }} />
+      )
     }).not.toThrow()
   })
 })

@@ -5,7 +5,7 @@ import ExpenseList from './ExpenseList'
 describe('ExpenseList', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<ExpenseList />)
+      render(<ExpenseList expenseList={[]} removeExpense={() => {}} />)
     }).not.toThrow()
   })
 })
