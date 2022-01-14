@@ -8,6 +8,13 @@ const DELETE_EXPENSE_MUTATION = gql`
     }
   }
 `
+const LOCALE_CONFIG = [
+  'en-US',
+  {
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+  },
+]
 
 const ExpenseItem = ({ expense }) => {
   const [deleteExpense] = useMutation(DELETE_EXPENSE_MUTATION, {
@@ -20,11 +27,7 @@ const ExpenseItem = ({ expense }) => {
   return (
     <div className="mt-1 flex flex-row justify-between relative bg-gray-200 p-2 rounded-lg max-w-md">
       <p>
-        {expense.name} - $
-        {expense.amount.toLocaleString('en-US', {
-          maximumFractionDigits: 2,
-          minimumFractionDigits: 2,
-        })}
+        {expense.name} - ${expense.amount.toLocaleString(...LOCALE_CONFIG)}
       </p>
       <button onClick={() => onDeleteClick(expense.id)}>Remove</button>
     </div>

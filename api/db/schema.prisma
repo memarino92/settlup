@@ -15,6 +15,6 @@ generator client {
 model expense {
   id    String     @id @default(cuid())
   name  String?
-  amount Float
+  amount Decimal
   createdAt DateTime @default(now())
 }
