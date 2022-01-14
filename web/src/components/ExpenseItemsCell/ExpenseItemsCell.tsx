@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import type { ExpenseItemsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import ExpenseItem from 'src/components/ExpenseItem'
@@ -25,7 +26,9 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ expenses, setTotal }: ExpenseItemsCell) => {
-  setTotal(expenses.reduce((a, b) => a + b.amount, 0))
+  useEffect(() => {
+    setTotal(expenses.reduce((a, b) => a + b.amount, 0))
+  }, [expenses, setTotal])
   return (
     <div>
       {expenses.map((expense) => {

@@ -21,9 +21,9 @@ const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <RedwoodApolloProvider>
-        <FlagProvider config={config}>
-          <Routes />
-        </FlagProvider>
+        {/* <FlagProvider config={config}> */}
+        <Routes />
+        {/* </FlagProvider> */}
       </RedwoodApolloProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
