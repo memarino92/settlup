@@ -5,10 +5,10 @@ import { QUERY } from 'src/components/ExpenseItemsCell'
 import {
   Form,
   FieldError,
-  NumberField,
   Label,
   Submit,
   TextField,
+  useForm,
 } from '@redwoodjs/forms'
 
 const CREATE_EXPENSE_MUTATION = gql`
@@ -20,9 +20,13 @@ const CREATE_EXPENSE_MUTATION = gql`
 `
 
 const ExpenseForm = () => {
+  const formMethods = useForm()
+
   const [createExpense] = useMutation(CREATE_EXPENSE_MUTATION, {
     onCompleted: () => {
       toast.success('Expense created')
+      formMethods.reset()
+      formMethods.setFocus('name')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -32,7 +36,7 @@ const ExpenseForm = () => {
   })
 
   const onSubmit = (input) => {
-    console.log(input)
+    input.amount = +input.amount
     createExpense({ variables: { input } })
   }
   return (
@@ -40,6 +44,7 @@ const ExpenseForm = () => {
       <Form
         onSubmit={onSubmit}
         className=" flex flex-nowrap align-middle justify-evenly px-2 p-2 mb-4"
+        formMethods={formMethods}
       >
         <div className="m-2 w-2/4">
           <Label
@@ -65,7 +70,7 @@ const ExpenseForm = () => {
           >
             Amount
           </Label>
-          <NumberField
+          <TextField
             name="amount"
             validation={{ required: true }}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
