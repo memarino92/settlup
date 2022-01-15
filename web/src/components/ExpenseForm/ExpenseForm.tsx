@@ -36,7 +36,6 @@ const ExpenseForm = () => {
   })
 
   const onSubmit = (input) => {
-    console.log(input)
     input.amount = +input.amount
     createExpense({ variables: { input } })
   }
