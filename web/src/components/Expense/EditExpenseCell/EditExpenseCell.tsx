@@ -14,6 +14,7 @@ export const QUERY = gql`
       name
       amount
       createdAt
+      expenseListId
     }
   }
 `
@@ -24,6 +25,7 @@ const UPDATE_EXPENSE_MUTATION = gql`
       name
       amount
       createdAt
+      expenseListId
     }
   }
 `

@@ -10,6 +10,7 @@ export const QUERY = gql`
       name
       amount
       createdAt
+      expenseListId
     }
   }
 `

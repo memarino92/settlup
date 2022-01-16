@@ -4,6 +4,8 @@ export const schema = gql`
     name: String
     amount: Float!
     createdAt: DateTime!
+    expenseList: ExpenseList!
+    expenseListId: String!
   }
 
   type Query {
@@ -14,11 +16,13 @@ export const schema = gql`
   input CreateExpenseInput {
     name: String
     amount: Float!
+    expenseListId: String!
   }
 
   input UpdateExpenseInput {
     name: String
     amount: Float
+    expenseListId: String
   }
 
   type Mutation {

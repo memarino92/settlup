@@ -1,4 +1,5 @@
 import type { Prisma } from '@prisma/client'
+import type { ResolverArgs } from '@redwoodjs/graphql-server'
 
 import { db } from 'src/lib/db'
 
@@ -37,4 +38,9 @@ export const deleteExpense = ({ id }: Prisma.ExpenseWhereUniqueInput) => {
   return db.expense.delete({
     where: { id },
   })
+}
+
+export const Expense = {
+  expenseList: (_obj, { root }: ResolverArgs<ReturnType<typeof expense>>) =>
+    db.expense.findUnique({ where: { id: root.id } }).expenseList(),
 }

@@ -1,10 +1,9 @@
-import ListCard from 'src/components/ListCard/ListCard'
+import Tab from 'src/components/Tab/Tab'
 
 const HomePage = () => {
   return (
-    <div className="flex w-max">
-      <ListCard />
-      <ListCard />
+    <div>
+      <Tab />
     </div>
   )
 }

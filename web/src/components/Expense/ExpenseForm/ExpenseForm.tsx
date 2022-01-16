@@ -55,9 +55,25 @@ const ExpenseForm = (props) => {
           defaultValue={props.expense?.amount}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ valueAsNumber: true, required: true }}
+          validation={{ required: true }}
         />
         <FieldError name="amount" className="rw-field-error" />
+
+        <Label
+          name="expenseListId"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Expense list id
+        </Label>
+        <TextField
+          name="expenseListId"
+          defaultValue={props.expense?.expenseListId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+        <FieldError name="expenseListId" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit
