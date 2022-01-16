@@ -1,10 +1,7 @@
-import { useState } from 'react'
 import ExpenseForm from '../ExpenseForm/ExpenseForm'
 import ExpenseItemsCell from '../ExpenseItemsCell'
 
-const ListCard = ({ expenseList }) => {
-  const [total, setTotal] = useState(0)
-
+const ListCard = ({ expenseList, setTotal, total }) => {
   return (
     <div className="bg-white shadow-md rounded px-2 p-2 m-4 max-w-md">
       <ExpenseForm expenseListId={expenseList.id} />
