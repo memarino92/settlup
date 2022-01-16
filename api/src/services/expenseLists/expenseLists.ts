@@ -3,8 +3,8 @@ import type { ResolverArgs } from '@redwoodjs/graphql-server'
 
 import { db } from 'src/lib/db'
 
-export const expenseLists = () => {
-  return db.expenseList.findMany()
+export const expenseLists = ({ tabId }) => {
+  return db.expenseList.findMany({ where: { tabId } })
 }
 
 export const expenseList = ({ id }: Prisma.ExpenseListWhereUniqueInput) => {

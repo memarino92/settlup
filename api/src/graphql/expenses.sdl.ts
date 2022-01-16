@@ -9,7 +9,7 @@ export const schema = gql`
   }
 
   type Query {
-    expenses: [Expense!]! @requireAuth
+    expenses(expenseListId: String!): [Expense!]! @requireAuth
     expense(id: String!): Expense @requireAuth
   }
 

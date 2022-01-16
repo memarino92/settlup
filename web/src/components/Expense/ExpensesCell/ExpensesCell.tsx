@@ -6,8 +6,8 @@ import { Link, routes } from '@redwoodjs/router'
 import Expenses from 'src/components/Expense/Expenses'
 
 export const QUERY = gql`
-  query FindExpenses {
-    expenses {
+  query FindExpenses($expenseListId: String!) {
+    expenses(expenseListId: $expenseListId) {
       id
       name
       amount
@@ -23,10 +23,7 @@ export const Empty = () => {
   return (
     <div className="rw-text-center">
       {'No expenses yet. '}
-      <Link
-        to={routes.newExpense()}
-        className="rw-link"
-      >
+      <Link to={routes.newExpense()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>
