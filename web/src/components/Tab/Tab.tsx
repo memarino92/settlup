@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import ListCard from 'src/components/ListCard/ListCard'
 import ResultCard from 'src/components/ResultCard/ResultCard'
+import ExpenseListsCell from 'src/components/ExpenseListsCell'
 
-const Tab = () => {
+const Tab = ({ tabId }) => {
   const [totalOne, setTotalOne] = useState(0)
   const [totalTwo, setTotalTwo] = useState(0)
 
@@ -10,12 +11,12 @@ const Tab = () => {
     <>
       <div className="flex w-max justify-center">
         <ListCard
-          expenseList={{ id: 'ckygp7rry0009vmtavpwh4rsf' }}
+          expenseList={{ id: process.env.EXPENSE_LIST_ID_ONE }}
           total={totalOne}
           setTotal={setTotalOne}
         />
         <ListCard
-          expenseList={{ id: 'ckygp8fs50016vmtahi7fwsxj' }}
+          expenseList={{ id: process.env.EXPENSE_LIST_ID_TWO }}
           total={totalTwo}
           setTotal={setTotalTwo}
         />
