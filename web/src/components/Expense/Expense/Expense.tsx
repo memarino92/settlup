@@ -67,6 +67,9 @@ const Expense = ({ expense }) => {
             </tr><tr>
               <th>Created at</th>
               <td>{timeTag(expense.createdAt)}</td>
+            </tr><tr>
+              <th>Expense list id</th>
+              <td>{expense.expenseListId}</td>
             </tr>
           </tbody>
         </table>

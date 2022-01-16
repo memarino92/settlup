@@ -12,17 +12,21 @@ const CREATE_EXPENSE_MUTATION = gql`
 `
 
 const NewExpense = () => {
-  const [createExpense, { loading, error }] = useMutation(CREATE_EXPENSE_MUTATION, {
-    onCompleted: () => {
-      toast.success('Expense created')
-      navigate(routes.expenses())
-    },
-    onError: (error) => {
-      toast.error(error.message)
-    },
-  })
+  const [createExpense, { loading, error }] = useMutation(
+    CREATE_EXPENSE_MUTATION,
+    {
+      onCompleted: () => {
+        toast.success('Expense created')
+        navigate(routes.expenses())
+      },
+      onError: (error) => {
+        toast.error(error.message)
+      },
+    }
+  )
 
   const onSave = (input) => {
+    input.amount = +input.amount
     createExpense({ variables: { input } })
   }
 

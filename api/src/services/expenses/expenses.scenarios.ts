@@ -1,9 +1,19 @@
 import type { Prisma } from '@prisma/client'
 
-export const standard = defineScenario<Prisma.expenseCreateArgs>({
+export const standard = defineScenario<Prisma.ExpenseCreateArgs>({
   expense: {
-    one: { data: { amount: 2732880.2588968882 } },
-    two: { data: { amount: 6585982.821272302 } },
+    one: {
+      data: {
+        amount: 5377461.018671938,
+        expenseList: { create: { tab: { create: {} } } },
+      },
+    },
+    two: {
+      data: {
+        amount: 419280.54999772925,
+        expenseList: { create: { tab: { create: {} } } },
+      },
+    },
   },
 })
 

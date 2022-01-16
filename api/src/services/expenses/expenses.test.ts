@@ -20,25 +20,29 @@ describe('expenses', () => {
     expect(result).toEqual(scenario.expense.one)
   })
 
-  scenario('creates an expense', async () => {
+  scenario('creates a expense', async (scenario: StandardScenario) => {
     const result = await createExpense({
-      input: { amount: 2441158.789944864 },
+      input: {
+        amount: 8732215.008296356,
+        expenseListId: scenario.expense.two.expenseListId,
+      },
     })
 
-    expect(result.amount).toEqual(2441158.789944864)
+    expect(result.amount).toEqual(8732215.008296356)
+    expect(result.expenseListId).toEqual(scenario.expense.two.expenseListId)
   })
 
-  scenario('updates an expense', async (scenario: StandardScenario) => {
+  scenario('updates a expense', async (scenario: StandardScenario) => {
     const original = await expense({ id: scenario.expense.one.id })
     const result = await updateExpense({
       id: original.id,
-      input: { amount: 3113164.237249428 },
+      input: { amount: 8224678.362329041 },
     })
 
-    expect(result.amount).toEqual(3113164.237249428)
+    expect(result.amount).toEqual(8224678.362329041)
   })
 
-  scenario('deletes an expense', async (scenario: StandardScenario) => {
+  scenario('deletes a expense', async (scenario: StandardScenario) => {
     const original = await deleteExpense({ id: scenario.expense.one.id })
     const result = await expense({ id: original.id })
 

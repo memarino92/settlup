@@ -19,7 +19,7 @@ const CREATE_EXPENSE_MUTATION = gql`
   }
 `
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ expenseListId }) => {
   const formMethods = useForm()
 
   const [createExpense] = useMutation(CREATE_EXPENSE_MUTATION, {
@@ -31,13 +31,13 @@ const ExpenseForm = () => {
     onError: (error) => {
       toast.error(error.message)
     },
-    refetchQueries: [{ query: QUERY }],
+    refetchQueries: [{ query: QUERY, variables: { expenseListId } }],
     awaitRefetchQueries: true,
   })
 
   const onSubmit = (input) => {
     input.amount = +input.amount
-    createExpense({ variables: { input } })
+    createExpense({ variables: { input: { expenseListId, ...input } } })
   }
   return (
     <div className="w-full max-w-full">

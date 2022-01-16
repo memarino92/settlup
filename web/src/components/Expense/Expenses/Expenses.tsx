@@ -68,6 +68,7 @@ const ExpensesList = ({ expenses }) => {
             <th>Name</th>
             <th>Amount</th>
             <th>Created at</th>
+            <th>Expense list id</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -78,6 +79,7 @@ const ExpensesList = ({ expenses }) => {
               <td>{truncate(expense.name)}</td>
               <td>{truncate(expense.amount)}</td>
               <td>{timeTag(expense.createdAt)}</td>
+              <td>{truncate(expense.expenseListId)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

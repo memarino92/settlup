@@ -4,8 +4,8 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import ExpenseItem from 'src/components/ExpenseItem'
 
 export const QUERY = gql`
-  query ExpenseItemsQuery {
-    expenses {
+  query ExpenseItemsQuery($expenseListId: String!) {
+    expenses(expenseListId: $expenseListId) {
       id
       name
       amount
@@ -15,6 +15,7 @@ export const QUERY = gql`
 `
 type ExpenseItemsCell = CellSuccessProps<ExpenseItemsQuery> & {
   setTotal: (total: number) => void
+  expenseListId: string
 }
 
 export const Loading = () => <div>Loading...</div>
