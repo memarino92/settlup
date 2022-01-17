@@ -26,14 +26,24 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ expenses, setTotal }: ExpenseItemsCell) => {
+export const Success = ({
+  expenses,
+  setTotal,
+  expenseListId,
+}: ExpenseItemsCell) => {
   useEffect(() => {
     setTotal(expenses.reduce((a, b) => a + b.amount, 0))
   }, [expenses, setTotal])
   return (
     <div>
       {expenses.map((expense) => {
-        return <ExpenseItem key={expense.id} expense={expense} />
+        return (
+          <ExpenseItem
+            key={expense.id}
+            expense={expense}
+            expenseListId={expenseListId}
+          />
+        )
       })}
     </div>
   )
