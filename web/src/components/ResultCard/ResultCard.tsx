@@ -6,14 +6,22 @@ const ResultCard = ({ totalOne, totalTwo }) => {
         <>
           <p>
             1 &rarr; 2
-            <br />${(totalTwo - totalOne) / 2}
+            <br />$
+            {((totalTwo - totalOne) / 2).toLocaleString('en-US', {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })}
           </p>
         </>
       ) : (
         <>
           <p>
             1 &larr; 2
-            <br />${(totalOne - totalTwo) / 2}
+            <br />$
+            {((totalOne - totalTwo) / 2).toLocaleString('en-US', {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })}
           </p>
         </>
       )}

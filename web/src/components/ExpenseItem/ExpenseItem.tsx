@@ -16,9 +16,9 @@ const LOCALE_CONFIG = [
   },
 ]
 
-const ExpenseItem = ({ expense }) => {
+const ExpenseItem = ({ expense, expenseListId }) => {
   const [deleteExpense] = useMutation(DELETE_EXPENSE_MUTATION, {
-    refetchQueries: [{ query: QUERY }],
+    refetchQueries: [{ query: QUERY, variables: { expenseListId } }],
     awaitRefetchQueries: true,
   })
   const onDeleteClick = (id) => {
