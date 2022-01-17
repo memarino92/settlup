@@ -9,7 +9,7 @@ const Tab = ({ tabId }) => {
 
   return (
     <div className="flex flex-col w-100 align-middle">
-      <div className="flex w-100 align-middle">
+      <div className="flex w-100 justify-center align-middle">
         <ListCard
           expenseList={{ id: process.env.EXPENSE_LIST_ID_ONE }}
           total={totalOne}
