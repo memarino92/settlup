@@ -25,6 +25,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         </h1>
       </header>
       {children}
+      <footer className="text-center pt-32 pr-8 pb-16 pl-8">
+        &copy; {new Date().getFullYear()} Michael Marino
+      </footer>
     </>
   )
 }
