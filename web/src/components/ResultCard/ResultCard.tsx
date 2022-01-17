@@ -1,10 +1,10 @@
 const ResultCard = ({ totalOne, totalTwo }) => {
   return (
     <div>
-      <h2>SettlUp!</h2>
+      <h2 className="text-xl">SettlUp!</h2>
       {totalOne < totalTwo ? (
         <>
-          <p>
+          <p className="text-xl">
             1 &rarr; 2
             <br />$
             {((totalTwo - totalOne) / 2).toLocaleString('en-US', {
@@ -15,7 +15,7 @@ const ResultCard = ({ totalOne, totalTwo }) => {
         </>
       ) : (
         <>
-          <p>
+          <p className="text-xl">
             1 &larr; 2
             <br />$
             {((totalOne - totalTwo) / 2).toLocaleString('en-US', {

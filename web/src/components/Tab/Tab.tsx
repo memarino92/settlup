@@ -8,8 +8,8 @@ const Tab = ({ tabId }) => {
   const [totalTwo, setTotalTwo] = useState(0)
 
   return (
-    <>
-      <div className="flex w-max justify-center">
+    <div className="flex flex-col w-100 align-middle">
+      <div className="flex w-100 align-middle">
         <ListCard
           expenseList={{ id: process.env.EXPENSE_LIST_ID_ONE }}
           total={totalOne}
@@ -21,10 +21,10 @@ const Tab = ({ tabId }) => {
           setTotal={setTotalTwo}
         />
       </div>
-      <div className="flex w-max justify-center">
+      <div className="flex w-100 justify-center align-middle">
         <ResultCard totalOne={totalOne} totalTwo={totalTwo} />
       </div>
-    </>
+    </div>
   )
 }
 
